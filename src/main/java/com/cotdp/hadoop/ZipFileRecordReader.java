@@ -59,7 +59,7 @@ extends RecordReader<Text, Text>
 	/** Used to indicate progress */
 	private boolean isFinished = false;
 	private boolean startedReading = false;
-			
+
 	private BufferedReader br;
 
 	/**
@@ -105,7 +105,7 @@ extends RecordReader<Text, Text>
 			ZipEntry entry = null;
 			try
 			{
-				entry = zip.getNextEntry();
+				while ((entry = zip.getNextEntry()) != null && entry.isDirectory());
 			}
 			catch ( ZipException e )
 			{
